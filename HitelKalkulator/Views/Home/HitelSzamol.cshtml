@@ -1,0 +1,39 @@
+﻿@model HitelViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HitelSzamol</title>
+</head>
+<body>
+    <h1>A hiteled adatai</h1>
+    <h3>Hitel költsége: @Model.Osszar</h3>
+
+    <table width="100%">
+        <tr>
+            <th>Év</th>
+            <th>Tőketartozás</th>
+            <th>Kamatfizetés</th>
+            <th>Tőketörlesztés</th>
+            <th>Adósságszolgálat</th>
+        </tr>
+        @{ 
+            for (int i = 0; i < Model.Adatok.GetLength(0); i++)
+            {
+        <tr>
+            <td>@Model.Adatok[i, 0]</td>
+            <td>@Model.Adatok[i, 1]</td>
+            <td>@Model.Adatok[i, 2]</td>
+            <td>@Model.Adatok[i, 3]</td>
+            <td>@Model.Adatok[i, 4]</td>
+        </tr>
+            }
+        }
+
+    </table>
+
+    <a href="/Home/Index">Vissza a főoldalra!</a>
+</body>
+</html>
